@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NIGIL.R | CSE Student | Developer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* PARTICLES */
+
+#particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+.glow{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(124,58,237,.22),
+        transparent 70%
+    );
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 7%;
+    background:rgba(5,8,22,.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    z-index:1000;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#8b5cf6;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#a78bfa;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 7%;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 20px;
+    border:1px solid #7c3aed;
+    border-radius:30px;
+    color:#c4b5fd;
+    background:rgba(124,58,237,.1);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,10vw,110px);
+    font-weight:900;
+    letter-spacing:-5px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4,
+        #ec4899,
+        #8b5cf6
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradient 5s infinite linear;
+}
+
+@keyframes gradient{
+    from{background-position:0%}
+    to{background-position:300%}
+}
+
+.hero h2{
+    margin-top:20px;
+    font-size:30px;
+}
+
+.typing{
+    color:#22d3ee;
+}
+
+.hero p{
+    color:#a7b0c5;
+    line-height:1.8;
+    max-width:700px;
+    margin:25px auto;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.primary{
+    background:linear-gradient(
+        135deg,
+        #7c3aed,
+        #06b6d4
+    );
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title small{
+    color:#8b5cf6;
+    letter-spacing:3px;
+}
+
+.title h2{
+    font-size:45px;
+    margin:10px 0;
+}
+
+.title p{
+    color:#8993aa;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:25px;
+    padding:30px;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#8b5cf6;
+}
+
+.card h3{
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.card p{
+    color:#a7b0c5;
+    line-height:1.8;
+}
+
+/* SKILLS */
+
+.skills{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.skill{
+    text-align:center;
+    padding:25px 15px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.4s;
+}
+
+.skill:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:#8b5cf6;
+}
+
+.skill-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.skill h3{
+    font-size:16px;
+}
+
+.skill p{
+    color:#8993aa;
+    font-size:13px;
+    margin-top:7px;
+}
+
+/* HOBBIES */
+
+.hobbies{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.hobby{
+    text-align:center;
+    padding:30px 15px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.4s;
+}
+
+.hobby:hover{
+    transform:translateY(-8px);
+    background:rgba(124,58,237,.12);
+}
+
+.hobby-icon{
+    font-size:45px;
+    margin-bottom:12px;
+}
+
+.hobby p{
+    color:#a7b0c5;
+    margin-top:8px;
+}
+
+/* PROJECTS */
+
+.projects{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.project{
+    padding:28px;
+    min-height:250px;
+    border-radius:22px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+    border-color:#8b5cf6;
+    box-shadow:0 20px 50px rgba(124,58,237,.15);
+}
+
+.project-number{
+    color:#8b5cf6;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.project h3{
+    margin:15px 0;
+    font-size:21px;
+}
+
+.project p{
+    color:#a7b0c5;
+    line-height:1.7;
+}
+
+.tags{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.tags span{
+    background:rgba(139,92,246,.15);
+    color:#c4b5fd;
+    padding:6px 9px;
+    border-radius:15px;
+    font-size:11px;
+}
+
+/* RESUME */
+
+.resume{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.resume-card{
+    padding:50px 30px;
+    border-radius:30px;
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(124,58,237,.2),
+        transparent 45%
+    ),
+    rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.resume-card h2{
+    font-size:38px;
+}
+
+.resume-card p{
+    color:#a7b0c5;
+    margin:18px 0 30px;
+}
+
+/* CONTACT */
+
+.contact{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-card{
+    padding:45px;
+    border-radius:30px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.contact-card p{
+    color:#a7b0c5;
+    margin:15px 0 30px;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.contact-links a{
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.12);
+    transition:.3s;
+}
+
+.contact-links a:hover{
+    background:#7c3aed;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#8993aa;
+}
+
+footer span{
+    color:#a78bfa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hobbies{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:75px 5%;
+    }
+
+    .skills,
+    .hobbies,
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="glow" id="glow"></div>
+
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="nav">
+
+<div class="logo">
+NIGIL<span>.R</span>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#hobbies">Hobbies</a></li>
+<li><a href="#resume">Resume</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+🚀 B.E Computer Science Engineering Student
+</div>
+
+<h1>
+NIGIL<span class="gradient">.R</span>
+</h1>
+
+<h2>
+I'm a <span class="typing" id="typing"></span>
+</h2>
+
+<p>
+Passionate B.E Computer Science Engineering student,
+developer and technology enthusiast who loves creating
+creative digital solutions and exploring new technologies.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+🚀 Explore Projects
+</a>
+
+<a href="#resume" class="btn secondary">
+📄 View Resume
+</a>
+
+<a href="https://github.com/NIGIL497/typing-speed-tester-"
+target="_blank"
+class="btn secondary">
+🐙 GitHub
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="title">
+
+<small>WHO AM I?</small>
+
+<h2>About Me</h2>
+
+<p>My journey, interests and technical background.</p>
+
+</div>
+
+
+<div class="about">
+
+<div class="card">
+
+<h3>👋 Hello, I'm NIGIL.R</h3>
+
+<p>
+I am a <b>B.E Computer Science Engineering student</b>
+with a strong interest in software development,
+web development and application development.
+</p>
+
+<br>
+
+<p>
+I have worked on <b>10+ projects</b> and enjoy converting
+creative ideas 💡 into practical digital solutions.
+I am continuously learning new technologies and improving
+my technical skills through hands-on projects.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎯 My Career Goal</h3>
+
+<p>
+My goal is to become a skilled software professional
+with strong technical knowledge, creative thinking and
+real-world project experience.
+</p>
+
+<br>
+
+<p>
+I am interested in building innovative applications,
+websites and technology solutions that can solve
+real-world problems.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROFESSIONAL LANGUAGES -->
+
+<section id="skills">
+
+<div class="title">
+
+<small>MY TECH STACK</small>
+
+<h2>Professional Languages</h2>
+
+<p>Programming and web technologies I know.</p>
+
+</div>
+
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-icon">🐍</div>
+<h3>Python</h3>
+<p>Programming</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">☕</div>
+<h3>Java</h3>
+<p>Programming & OOP</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">🌐</div>
+<h3>HTML</h3>
+<p>Web Development</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">🎨</div>
+<h3>CSS</h3>
+<p>Web Design</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">⚡</div>
+<h3>JavaScript</h3>
+<p>Web Interactivity</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TECHNICAL SKILLS -->
+
+<section>
+
+<div class="title">
+
+<small>WHAT I CAN DO</small>
+
+<h2>Technical & Professional Skills</h2>
+
+<p>My practical and professional skills.</p>
+
+</div>
+
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-icon">🌐</div>
+<h3>Web Development</h3>
+<p>Frontend & Interactive Websites</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">📱</div>
+<h3>Application Development</h3>
+<p>Application Development Basics</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">📊</div>
+<h3>MS Excel</h3>
+<p>Data & Spreadsheet Skills</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">📝</div>
+<h3>MS Word</h3>
+<p>Documentation</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">📽️</div>
+<h3>PowerPoint</h3>
+<p>Professional Presentations</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">💻</div>
+<h3>Technical Skills</h3>
+<p>Basic Technical Knowledge</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">🧩</div>
+<h3>Problem Solving</h3>
+<p>Logical Thinking</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">💡</div>
+<h3>Creative Ideas</h3>
+<p>Innovation & Creativity</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="title">
+
+<small>MY WORK</small>
+
+<h2>10+ Projects</h2>
+
+<p>Some of my project experience and ideas.</p>
+
+</div>
+
+
+<div class="projects">
+
+<div class="project">
+<span class="project-number">01</span>
+<h3>Typing Speed Tester</h3>
+<p>
+Website for testing typing speed, accuracy and performance.
+</p>
+<div class="tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">02</span>
+<h3>Blood Donation Management</h3>
+<p>
+Digital platform concept for connecting blood donors
+with people who need blood.
+</p>
+<div class="tags">
+<span>Web</span>
+<span>Database</span>
+<span>Cloud</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">03</span>
+<h3>Smart Fitness App</h3>
+<p>
+Fitness website concept for workouts, goals and
+healthy lifestyle tracking.
+</p>
+<div class="tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JS</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">04</span>
+<h3>Dog Finder</h3>
+<p>
+Modern web concept designed to help users find
+and identify dogs.
+</p>
+<div class="tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">05</span>
+<h3>Cloud Backup & Recovery</h3>
+<p>
+Concept for cloud file backup and previous-version recovery.
+</p>
+<div class="tags">
+<span>Cloud</span>
+<span>Backup</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">06</span>
+<h3>Student Career GPS</h3>
+<p>
+Career guidance concept helping students discover
+skills and career paths.
+</p>
+<div class="tags">
+<span>AI</span>
+<span>Web</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">07</span>
+<h3>AI Disaster Assistant</h3>
+<p>
+AI-based disaster management concept for emergency
+information and support.
+</p>
+<div class="tags">
+<span>AI</span>
+<span>Emergency</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">08</span>
+<h3>Freelance Marketplace</h3>
+<p>
+Platform concept connecting clients and freelancers.
+</p>
+<div class="tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JS</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">09</span>
+<h3>Smart Algal Bioreactor</h3>
+<p>
+IoT-based smart monitoring concept using sensors.
+</p>
+<div class="tags">
+<span>IoT</span>
+<span>ESP32</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">10</span>
+<h3>Portfolio Website</h3>
+<p>
+Animated personal portfolio for showcasing skills
+and projects.
+</p>
+<div class="tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JS</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">11</span>
+<h3>Student Management System</h3>
+<p>
+Application concept for managing student information
+and academic records.
+</p>
+<div class="tags">
+<span>Java</span>
+<span>Database</span>
+</div>
+</div>
+
+
+<div class="project">
+<span class="project-number">12</span>
+<h3>AI Innovation Projects</h3>
+<p>
+Experimental projects exploring AI and creative
+technology solutions.
+</p>
+<div class="tags">
+<span>AI</span>
+<span>Python</span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOBBIES -->
+
+<section id="hobbies">
+
+<div class="title">
+
+<small>BEYOND CODING</small>
+
+<h2>My Hobbies</h2>
+
+<p>Things I enjoy in my free time.</p>
+
+</div>
+
+
+<div class="hobbies">
+
+<div class="hobby">
+<div class="hobby-icon">📚</div>
+<h3>Reading Books</h3>
+<p>Learning & Knowledge</p>
+</div>
+
+<div class="hobby">
+<div class="hobby-icon">🎵</div>
+<h3>Listening to Music</h3>
+<p>Relaxation & Focus</p>
+</div>
+
+<div class="hobby">
+<div class="hobby-icon">🏸</div>
+<h3>Playing Badminton</h3>
+<p>Fitness & Energy</p>
+</div>
+
+<div class="hobby">
+<div class="hobby-icon">🏋️</div>
+<h3>Going to Gym</h3>
+<p>Fitness & Discipline</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESUME -->
+
+<section id="resume">
+
+<div class="title">
+
+<small>MY RESUME</small>
+
+<h2>Professional Resume</h2>
+
+<p>View or download my resume.</p>
+
+</div>
+
+
+<div class="resume">
+
+<div class="resume-card">
+
+<h2>📄 NIGIL.R Resume</h2>
+
+<p>
+B.E Computer Science Engineering Student • Developer •
+Technology Enthusiast
+</p>
+
+<a href="NIGIL_R_Resume.pdf"
+target="_blank"
+class="btn primary">
+👁️ View Resume
+</a>
+
+<a href="NIGIL_R_Resume.pdf"
+download
+class="btn secondary">
+⬇️ Download Resume
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="title">
+
+<small>GET IN TOUCH</small>
+
+<h2>Contact Me</h2>
+
+<p>Let's connect and build something amazing.</p>
+
+</div>
+
+
+<div class="contact">
+
+<div class="contact-card">
+
+<h2>🚀 Let's Create Something Great</h2>
+
+<p>
+I am interested in projects, technology, learning,
+hackathons and creative ideas.
+</p>
+
+
+<div class="contact-links">
+
+<a href="mailto:nigil7799@gmail.com">
+📧 nigil7799@gmail.com
+</a>
+
+<a href="tel:+917305761745">
+📱 7305761745
+</a>
+
+<a href="https://github.com/NIGIL497/typing-speed-tester-"
+target="_blank">
+🐙 GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 <span>NIGIL.R</span> | B.E Computer Science Engineering
+</p>
+
+<p style="margin-top:8px;">
+Built with ❤️ using HTML, CSS & JavaScript
+</p>
+
+</footer>
+
+
+<script>
+
+/* TYPING EFFECT */
+
+const words=[
+"Developer",
+"CSE Student",
+"Web Developer",
+"Application Developer",
+"Technology Enthusiast",
+"Creative Thinker"
+];
+
+let word=0;
+let char=0;
+let deleting=false;
+
+const typing=
+document.getElementById("typing");
+
+function type(){
+
+let current=words[word];
+
+if(!deleting){
+
+typing.textContent=
+current.substring(0,char+1);
+
+char++;
+
+if(char===current.length){
+
+deleting=true;
+
+setTimeout(type,1200);
+
+return;
+}
+
+}else{
+
+typing.textContent=
+current.substring(0,char-1);
+
+char--;
+
+if(char===0){
+
+deleting=false;
+word++;
+
+if(word>=words.length)
+word=0;
+
+}
+}
+
+setTimeout(
+type,
+deleting ? 50 : 100
+);
+
+}
+
+type();
+
+
+/* PARTICLES */
+
+const canvas=
+document.getElementById("particles");
+
+const ctx=
+canvas.getContext("2d");
+
+let particles=[];
+
+function resize(){
+
+canvas.width=
+window.innerWidth;
+
+canvas.height=
+window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener(
+"resize",
+resize
+);
+
+
+class Particle{
+
+constructor(){
+
+this.x=
+Math.random()*canvas.width;
+
+this.y=
+Math.random()*canvas.height;
+
+this.size=
+Math.random()*2+0.5;
+
+this.speedX=
+(Math.random()-.5)*.5;
+
+this.speedY=
+(Math.random()-.5)*.5;
+
+}
+
+update(){
+
+this.x+=this.speedX;
+this.y+=this.speedY;
+
+if(
+this.x<0 ||
+this.x>canvas.width
+)
+this.speedX*=-1;
+
+if(
+this.y<0 ||
+this.y>canvas.height
+)
+this.speedY*=-1;
+
+}
+
+draw(){
+
+ctx.beginPath();
+
+ctx.arc(
+this.x,
+this.y,
+this.size,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle=
+"rgba(139,92,246,.7)";
+
+ctx.fill();
+
+}
+
+}
+
+
+function createParticles(){
+
+particles=[];
+
+let amount=
+Math.min(
+130,
+Math.floor(
+window.innerWidth/10
+)
+);
+
+for(
+let i=0;
+i<amount;
+i++
+){
+
+particles.push(
+new Particle()
+);
+
+}
+
+}
+
+createParticles();
+
+
+function connect(){
+
+for(
+let a=0;
+a<particles.length;
+a++
+){
+
+for(
+let b=a+1;
+b<particles.length;
+b++
+){
+
+let dx=
+particles[a].x-
+particles[b].x;
+
+let dy=
+particles[a].y-
+particles[b].y;
+
+let distance=
+Math.sqrt(
+dx*dx+dy*dy
+);
+
+if(distance<110){
+
+ctx.beginPath();
+
+ctx.strokeStyle=
+`rgba(124,58,237,
+${1-distance/110})`;
+
+ctx.lineWidth=.5;
+
+ctx.moveTo(
+particles[a].x,
+particles[a].y
+);
+
+ctx.lineTo(
+particles[b].x,
+particles[b].y
+);
+
+ctx.stroke();
+
+}
+
+}
+
+}
+
+}
+
+
+function animate(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+particles.forEach(
+p=>{
+p.update();
+p.draw();
+}
+);
+
+connect();
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+animate();
+
+
+/* MOUSE GLOW */
+
+const glow=
+document.getElementById("glow");
+
+document.addEventListener(
+"mousemove",
+e=>{
+
+glow.style.left=
+e.clientX+"px";
+
+glow.style.top=
+e.clientY+"px";
+
+}
+);
+
+</script>
+
+</body>
+</html>
